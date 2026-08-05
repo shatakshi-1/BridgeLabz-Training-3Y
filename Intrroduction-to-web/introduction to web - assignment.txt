@@ -1,0 +1,90 @@
+SOLUTION 1
+Frontend--> Frontend is the user interface side. It includes the buttons, text, colors, layout, animations, and anything the user directly interacts with in the browser.
+
+For example: In an online shopping app, the product cards, search bar, “Add to Cart” button, and checkout page design are frontend work.
+
+Backend--> Backend is the server side. It handles business logic, databases, authentication, payment processing, and data storage, which users usually do not see directly.
+
+For example: When you log in to the shopping app, the backend checks your username and password, loads your cart from the database, and sends the correct data back to the screen.
+
+Full-stack--> Full-stack developers work on both frontend and backend. They can build the user interface and also create the server, database, and API logic that power it.
+
+For example: If someone builds a complete food delivery app with the customer app, restaurant dashboard, order system, and database, that person is doing full-stack development.
+
+
+SOLUTION 2
+User
+  |
+  v
+Browser / Client
+  |
+  |  HTTP Request
+  v
+Web Server
+  |
+  |  Process request
+  |  Get data from Database
+  v
+Database
+  |
+  |  Send data back
+  v
+Web Server
+  |
+  |  HTTP Response
+  v
+Browser / Client
+  |
+  v
+User sees page
+
+
+SOLUTION 3
+Browser requests a web page from the server.
+
+1. User types a website address in the browser.
+   The browser reads the URL and finds which website to open.
+
+2. Browser sends a request to the web server.
+   This request asks the server to give the web page data.
+
+3. Server receives the request and prepares the page data.
+   If needed, it also gets information from the database.
+
+4. Server sends back HTML, CSS, JavaScript, and images.
+   HTML gives structure, CSS gives design, JavaScript gives action.
+
+5. Browser reads these files.
+   It starts understanding the page content and style.
+
+6. Browser builds the page on the screen.
+   It arranges text, buttons, images, and colors properly.
+
+7. User sees the web page and can interact with it.
+   Now the user can click, scroll, type, or open links.
+
+
+SOLUTION 4
+Code editor / IDE: Used to write and edit code. It also helps with syntax highlighting, auto-complete, and error checking. Example: VS Code.
+
+Browser: Used to run and test the web page. It shows how the website looks and works. Example: Chrome or Firefox.
+
+Developer Tools: Built into the browser and used for debugging, checking HTML, CSS, JavaScript, and finding layout issues.
+
+Git: Used to track code changes and save different versions of the project. It also helps in team work.
+
+GitHub: Used to store code online and work with others on the same project.
+
+Package manager: Used to install project libraries and dependencies. Example: npm.
+
+Frameworks / libraries: Used to build apps faster and with less code. Example: React, Bootstrap, or Node.js tools.
+
+Testing tools: Used to check if the website or API works correctly. Example: Postman, Jest, Cypress.
+
+Database tool: Used to store and manage data like users, products, and orders. Example: MySQL, MongoDB.
+
+Terminal / command line: Used to run commands, install tools, start projects, and manage files faster.
+
+SOLUTION 5
+
+
