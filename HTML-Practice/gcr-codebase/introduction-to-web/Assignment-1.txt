@@ -1,0 +1,175 @@
+SOLUTION 1
+Frontend--> Frontend is the user interface side. It includes the buttons, text, colors, layout, animations, and anything the user directly interacts with in the browser.
+
+For example: In an online shopping app, the product cards, search bar, “Add to Cart” button, and checkout page design are frontend work.
+
+Backend--> Backend is the server side. It handles business logic, databases, authentication, payment processing, and data storage, which users usually do not see directly.
+
+For example: When you log in to the shopping app, the backend checks your username and password, loads your cart from the database, and sends the correct data back to the screen.
+
+Full-stack--> Full-stack developers work on both frontend and backend. They can build the user interface and also create the server, database, and API logic that power it.
+
+For example: If someone builds a complete food delivery app with the customer app, restaurant dashboard, order system, and database, that person is doing full-stack development.
+
+
+SOLUTION 2
+User
+  |
+  v
+Browser / Client
+  |
+  |  HTTP Request
+  v
+Web Server
+  |
+  |  Process request
+  |  Get data from Database
+  v
+Database
+  |
+  |  Send data back
+  v
+Web Server
+  |
+  |  HTTP Response
+  v
+Browser / Client
+  |
+  v
+User sees page
+
+
+SOLUTION 3
+Browser requests a web page from the server.
+
+1. User types a website address in the browser.
+   The browser reads the URL and finds which website to open.
+
+2. Browser sends a request to the web server.
+   This request asks the server to give the web page data.
+
+3. Server receives the request and prepares the page data.
+   If needed, it also gets information from the database.
+
+4. Server sends back HTML, CSS, JavaScript, and images.
+   HTML gives structure, CSS gives design, JavaScript gives action.
+
+5. Browser reads these files.
+   It starts understanding the page content and style.
+
+6. Browser builds the page on the screen.
+   It arranges text, buttons, images, and colors properly.
+
+7. User sees the web page and can interact with it.
+   Now the user can click, scroll, type, or open links.
+
+
+SOLUTION 4
+Code editor / IDE: Used to write and edit code. It also helps with syntax highlighting, auto-complete, and error checking. Example: VS Code.
+
+Browser: Used to run and test the web page. It shows how the website looks and works. Example: Chrome or Firefox.
+
+Developer Tools: Built into the browser and used for debugging, checking HTML, CSS, JavaScript, and finding layout issues.
+
+Git: Used to track code changes and save different versions of the project. It also helps in team work.
+
+GitHub: Used to store code online and work with others on the same project.
+
+Package manager: Used to install project libraries and dependencies. Example: npm.
+
+Frameworks / libraries: Used to build apps faster and with less code. Example: React, Bootstrap, or Node.js tools.
+
+Testing tools: Used to check if the website or API works correctly. Example: Postman, Jest, Cypress.
+
+Database tool: Used to store and manage data like users, products, and orders. Example: MySQL, MongoDB.
+
+Terminal / command line: Used to run commands, install tools, start projects, and manage files faster.
+
+
+SOLUTION 5
+A web server is hardware and software that stores website content and delivers it to users' browsers over the internet via HTTP/HTTPS.
+
+Common Examples
+Apache: Open-source, highly configurable, and widely used globally.
+
+Nginx: High-performance, lightweight, and excels at handling heavy concurrent traffic.
+
+Microsoft IIS: Proprietary server built by Microsoft, optimized for Windows environments and ASP.NET.
+
+LiteSpeed: High-performance drop-in replacement for Apache with strong traffic-handling capabilities.
+
+Node.js: JavaScript-based runtime used to build custom, lightweight, real-time servers.
+
+SOLUTION 6
+Frontend Developer
+Role: Builds what users see and interact with in the browser.
+
+Key Tasks: Translates UI designs into code using HTML, CSS, and JavaScript; ensures responsiveness and client-side performance.
+
+Backend Developer
+Role: Manages server-side logic, business rules, and APIs.
+
+Key Tasks: Handles authentication, server operations, routing, and communication between the frontend and databases.
+
+Database Administrator (DBA)
+Role: Manages and secures data storage infrastructure.
+
+Key Tasks: Ensures data integrity, backups, and security; optimizes database performance and manages user access controls.
+
+
+SOLUTION 7
+https://drive.google.com/file/d/1yUZAF-8Ufyg3Ov7lGeNhBdILSi9Rfxg_/view?usp=sharing
+
+
+SOLUTION 8
+Static Website
+Definition: Serves fixed files (HTML, CSS, JS) directly to every user without server-side processing.
+
+Example: A personal portfolio page.
+
+Dynamic Website
+Definition: Generates content in real-time using databases and server-side logic, changing based on user interaction.
+
+Example: YouTube or Amazon.
+
+
+SOLUTION 9
+Five Browsers are
+Google Chrome
+Apple Safari
+Mozilla Firefox
+Microsoft Edge
+Brave
+
+Rendering Engines are:
+Blink (Chrome, Edge, Brave): Focuses on high-speed performance and multi-process architecture. Delivers near-identical web rendering since they share the same core.
+WebKit (Safari): Optimized for Apple hardware, prioritizing energy efficiency, battery life, and tight OS integration. Can have minor standard discrepancies from Blink.
+Gecko (Firefox): An independent engine built by Mozilla to enforce strict web standards and privacy. Its unique codebase parses CSS and DOM trees separately from Chromium and WebKit.
+
+
+SOLUTION 10
+┌──────────────┐                                       ┌──────────────────────────────────┐
+│    CLIENT    │                                       │            BACKEND               │
+│  (Browser)   │                                       │          (Server Side)           │
+├──────────────┤                                       ├──────────────────────────────────┤
+│              │  1. HTTP Request (GET/POST w/ URL)   │                                  │
+│              │ ───────────────────────────────────> │ [ Web Server / API Gateway ]     │
+│              │                                      │   - Handles incoming requests    │
+│              │                                      │   - Routes traffic               │
+│              │                                      │                 │                │
+│              │                                      │                 ▼                │
+│              │                                      │ [ Application Logic / Code ]     │
+│              │                                      │   - Processes business rules     │
+│              │                                      │   - Handles security / auth      │
+│              │                                      │                 │                │
+│              │                                      │                 ├───(External APIs)│
+│              │                                      │                 │                  │
+│              │                                      │                 ▼                  │
+│              │                                      │           [ Database ]             │
+│              │                                      │   - Queries and updates data     │
+│              │                                      │   - Returns raw data (SQL/NoSQL) │
+│              │                                      │                 │                │
+│              │  4. HTTP Response (HTML/JSON/Data)   │                 ▼                │
+│              │ <─────────────────────────────────── │ [ Response Formatting ]          │
+│              │                                      │   - Packages data into payload   │
+└──────────────┘                                     
