@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+
+<h1>Login</h1>
+
+<!-- CSRF token helps protect a form from unauthorized requests from another website. -->
+
+<form action="#" method="post">
+
+    <label>Username:</label>
+    <input type="text" name="username" required>
+    <br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+    <br><br>
+
+    <input type="hidden"
+           name="csrf_token"
+           value="dummy-csrf-token-12345">
+
+    <button type="submit">Login</button>
+
+</form>
+
+</body>
+</html>
