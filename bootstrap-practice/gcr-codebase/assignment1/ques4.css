@@ -1,0 +1,13 @@
+
+body {
+    background-color: #fffaf5;
+}
+
+h2, h3 {
+    color: #b64b20;
+}
+
+figure img {
+    max-height: 300px;
+    object-fit: cover;
+}

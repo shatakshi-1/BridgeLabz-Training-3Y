@@ -1,0 +1,13 @@
+
+body {
+    background-color: #f5f7fa;
+}
+
+.list-group-item {
+    padding: 20px;
+    font-size: 17px;
+}
+
+.list-group-item:hover {
+    background-color: #eef4ff;
+}

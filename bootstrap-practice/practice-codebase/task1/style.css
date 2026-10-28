@@ -1,0 +1,162 @@
+
+/* General Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+/* Navbar */
+
+.navbar {
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    font-size: 20px;
+}
+
+.nav-link {
+    margin-left: 12px;
+}
+
+
+/* Hero Section */
+
+.hero {
+    background-color: #0d6efd;
+    min-height: 450px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+/* About Section */
+
+#about {
+    background-color: white;
+}
+
+.about-text {
+    max-width: 650px;
+    color: #777;
+    line-height: 1.8;
+}
+
+
+/* Projects Section */
+
+#projects {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 20px;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+
+/* Contact Section */
+
+#contact {
+    background-color: white;
+}
+
+.form-control {
+    padding: 12px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #212529;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.social-icons a:hover {
+    color: #0d6efd !important;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 350px;
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+    }
+
+    .card-img-top {
+        height: 200px;
+    }
+}
