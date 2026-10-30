@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    input {
+        display: block;
+        margin: 10px 0;
+        padding: 8px;
+    }
+    small { color: red; }
+</style>
+</head>
+<body>
+
+<h2>Student Registration</h2>
+
+<form id="form" novalidate>
+    <input id="name" placeholder="Name">
+    <small id="nameError"></small>
+
+    <input id="email" placeholder="Email">
+    <small id="emailError"></small>
+
+    <input id="phone" placeholder="Phone">
+    <small id="phoneError"></small>
+
+    <input id="password" type="password" placeholder="Password">
+    <small id="passwordError"></small>
+
+    <button type="submit">Register</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const rules = {
+        name: /^[A-Za-z]+$/,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        phone: /^\d{10}$/,
+        password: /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).+$/
+    };
+
+    const messages = {
+        name: "Only alphabets allowed",
+        email: "Enter valid email",
+        phone: "Phone must contain exactly 10 digits",
+        password: "Include uppercase, number and special character"
+    };
+
+    let valid = true;
+
+    for (let field in rules) {
+        let input = document.getElementById(field);
+        let error = document.getElementById(field + "Error");
+
+        if (!rules[field].test(input.value)) {
+            input.style.border = "2px solid red";
+            error.textContent = messages[field];
+            valid = false;
+        } else {
+            input.style.border = "2px solid green";
+            error.textContent = "";
+        }
+    }
+
+    document.getElementById("result").textContent =
+        valid ? "Registration Successful!" : "Please correct the errors.";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Login Form</h2>
+
+<form id="loginForm" novalidate>
+    <input id="username" placeholder="Username"><br><br>
+
+    <input id="password" type="password"
+           placeholder="Password"><br><br>
+
+    <button type="submit">Login</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+document.getElementById("loginForm")
+.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    let errors = [];
+
+    if (!/^.{5,}$/.test(username)) {
+        errors.push("Username must have at least 5 characters");
+    }
+
+    if (password.length < 8)
+        errors.push("Password must have at least 8 characters");
+
+    if (!/[A-Z]/.test(password))
+        errors.push("Password needs an uppercase letter");
+
+    if (!/[a-z]/.test(password))
+        errors.push("Password needs a lowercase letter");
+
+    if (!/[0-9]/.test(password))
+        errors.push("Password needs a number");
+
+    if (!/[^A-Za-z0-9\s]/.test(password))
+        errors.push("Password needs a special character");
+
+    let result = document.getElementById("result");
+
+    if (errors.length === 0) {
+        result.style.color = "green";
+        result.textContent = "Login Successful!";
+    } else {
+        result.style.color = "red";
+        result.innerHTML = "";
+        errors.forEach(error => {
+            let line = document.createElement("div");
+            line.textContent = error;
+            result.appendChild(line);
+        });
+    }
+});
+</script>
+
+</body>
+</html>
