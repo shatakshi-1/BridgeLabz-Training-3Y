@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Multi-Step Registration Form</h2>
+
+<div id="step1">
+    <h3>Step 1: Name</h3>
+    <input id="name" placeholder="Enter name">
+    <button onclick="nextStep(1)">Next</button>
+</div>
+
+<div id="step2" hidden>
+    <h3>Step 2: Email</h3>
+    <input id="email" placeholder="Enter email">
+    <button onclick="backStep(2)">Back</button>
+    <button onclick="nextStep(2)">Next</button>
+</div>
+
+<div id="step3" hidden>
+    <h3>Step 3: Password</h3>
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="backStep(3)">Back</button>
+    <button onclick="nextStep(3)">Submit</button>
+</div>
+
+<p id="error" style="color:red"></p>
+<div id="summary"></div>
+
+<script>
+function showStep(number) {
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById("step" + i).hidden = i !== number;
+    }
+
+    document.getElementById("error").textContent = "";
+}
+
+function nextStep(step) {
+    let error = document.getElementById("error");
+
+    if (step === 1) {
+        let name = document.getElementById("name").value.trim();
+
+        if (!/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(name)) {
+            error.textContent = "Enter a valid name";
+            return;
+        }
+    }
+
+    if (step === 2) {
+        let email = document.getElementById("email").value.trim();
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            error.textContent = "Enter a valid email";
+            return;
+        }
+    }
+
+    if (step === 3) {
+        let password = document.getElementById("password").value;
+
+        if (password.length < 6) {
+            error.textContent = "Password must have at least 6 characters";
+            return;
+        }
+
+        document.getElementById("summary").innerHTML = `
+            <h3>Registration Successful!</h3>
+            <p>Name: ${document.getElementById("name").value}</p>
+            <p>Email: ${document.getElementById("email").value}</p>
+            <p>Password: ********</p>
+        `;
+
+        showStep(0);
+        return;
+    }
+
+    showStep(step + 1);
+}
+
+function backStep(step) {
+    showStep(step - 1);
+}
+</script>
+
+</body>
+</html>

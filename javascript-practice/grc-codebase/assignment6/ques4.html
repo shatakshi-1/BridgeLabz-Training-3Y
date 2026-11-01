@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    padding: 30px;
+    font-family: Arial;
+}
+
+body[data-theme="light"] {
+    background: white;
+    color: black;
+}
+
+body[data-theme="dark"] {
+    background: #222;
+    color: white;
+}
+
+body[data-theme="blue"] {
+    background: #b3d9ff;
+    color: #003366;
+}
+</style>
+</head>
+
+<body data-theme="light">
+
+<h2>Theme Switcher</h2>
+
+<button onclick="changeTheme('light')">Light</button>
+<button onclick="changeTheme('dark')">Dark</button>
+<button onclick="changeTheme('blue')">Blue</button>
+
+<p id="currentTheme">Current Theme: light</p>
+
+<script>
+function changeTheme(theme) {
+    document.body.setAttribute("data-theme", theme);
+    document.body.setAttribute("class", theme);
+
+    document.getElementById("currentTheme").textContent =
+        "Current Theme: " + document.body.getAttribute("data-theme");
+}
+</script>
+
+</body>
+</html>

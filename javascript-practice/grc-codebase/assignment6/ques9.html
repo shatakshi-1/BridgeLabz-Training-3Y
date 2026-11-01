@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.error {
+    color: red;
+    font-size: 13px;
+}
+
+input {
+    padding: 8px;
+    margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registrationForm" novalidate>
+
+    <label>Name:</label><br>
+    <input id="name">
+    <p class="error" id="nameError"></p>
+
+    <label>Email:</label><br>
+    <input id="email">
+    <p class="error" id="emailError"></p>
+
+    <label>Password:</label><br>
+    <input id="password" type="password">
+    <p class="error" id="passwordError"></p>
+
+    <button type="submit">Submit</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+const form = document.getElementById("registrationForm");
+
+function validateName() {
+    let name = document.getElementById("name").value.trim();
+    let error = document.getElementById("nameError");
+
+    if (name === "") {
+        error.textContent = "Name is required";
+        return false;
+    }
+
+    error.textContent = "";
+    return true;
+}
+
+function validateEmail() {
+    let email = document.getElementById("email").value.trim();
+    let error = document.getElementById("emailError");
+
+    if (email === "") {
+        error.textContent = "Email is required";
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        error.textContent = "Email must contain @";
+        return false;
+    }
+
+    error.textContent = "";
+    return true;
+}
+
+function validatePassword() {
+    let password = document.getElementById("password").value;
+    let error = document.getElementById("passwordError");
+
+    if (password.length < 6) {
+        error.textContent = "Password must have at least 6 characters";
+        return false;
+    }
+
+    error.textContent = "";
+    return true;
+}
+
+// Live validation
+document.getElementById("name")
+    .addEventListener("input", validateName);
+
+document.getElementById("email")
+    .addEventListener("input", validateEmail);
+
+document.getElementById("password")
+    .addEventListener("input", validatePassword);
+
+// Submit validation
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let nameValid = validateName();
+    let emailValid = validateEmail();
+    let passwordValid = validatePassword();
+
+    let result = document.getElementById("result");
+
+    if (nameValid && emailValid && passwordValid) {
+        result.style.color = "green";
+        result.textContent = "Form Submitted Successfully!";
+    } else {
+        result.style.color = "red";
+        result.textContent = "Please correct the errors.";
+    }
+});
+</script>
+
+</body>
+</html>

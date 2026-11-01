@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropdown {
+    position: relative;
+    width: 200px;
+}
+
+#dropdownBtn {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#options {
+    display: none;
+    border: 1px solid gray;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: lightgray;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Custom Dropdown</h2>
+
+<div class="dropdown" id="dropdown">
+    <button id="dropdownBtn">Select Branch</button>
+
+    <div id="options">
+        <div class="option">CSE</div>
+        <div class="option">ECE</div>
+        <div class="option">ME</div>
+        <div class="option">IT</div>
+    </div>
+</div>
+
+<script>
+const dropdown = document.getElementById("dropdown");
+const button = document.getElementById("dropdownBtn");
+const options = document.getElementById("options");
+
+button.addEventListener("click", function() {
+    options.style.display =
+        options.style.display === "block" ? "none" : "block";
+});
+
+// Selecting an option
+options.addEventListener("click", function(event) {
+    if (event.target.classList.contains("option")) {
+        button.textContent = event.target.textContent;
+        options.style.display = "none";
+    }
+});
+
+// Capturing phase for outside click
+document.addEventListener("click", function(event) {
+    if (!dropdown.contains(event.target)) {
+        options.style.display = "none";
+    }
+}, true);
+</script>
+
+</body>
+</html>

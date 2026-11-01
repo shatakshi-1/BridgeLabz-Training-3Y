@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Character Counter</h2>
+
+<textarea id="message" rows="5" cols="40"></textarea>
+
+<p id="counter">100 characters remaining</p>
+
+<button id="reset">Reset</button>
+
+<script>
+const message = document.getElementById("message");
+const counter = document.getElementById("counter");
+
+function updateCounter() {
+    let remaining = 100 - message.value.length;
+
+    counter.textContent = remaining + " characters remaining";
+
+    if (remaining === 0) {
+        counter.style.color = "red";
+    } else if (remaining <= 20) {
+        counter.style.color = "#b8860b";
+    } else {
+        counter.style.color = "green";
+    }
+}
+
+message.addEventListener("beforeinput", function(event) {
+    let start = message.selectionStart;
+    let end = message.selectionEnd;
+
+    if (event.inputType.startsWith("delete")) return;
+
+    if (event.data !== null) {
+        let newLength =
+            message.value.length - (end - start) + event.data.length;
+
+        if (newLength > 100) {
+            event.preventDefault();
+        }
+    }
+});
+
+message.addEventListener("input", function() {
+    if (message.value.length > 100) {
+        message.value = message.value.slice(0, 100);
+    }
+    updateCounter();
+});
+
+document.getElementById("reset").addEventListener("click", function() {
+    message.value = "";
+    updateCounter();
+});
+
+updateCounter();
+</script>
+
+</body>
+</html>

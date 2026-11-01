@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Product Manager</h2>
+
+<input id="productInput" placeholder="Enter product">
+<button id="addBtn">Add Product</button>
+
+<ul id="productList"></ul>
+
+<script>
+const input = document.getElementById("productInput");
+const list = document.getElementById("productList");
+
+document.getElementById("addBtn").addEventListener("click", function() {
+    let name = input.value.trim();
+
+    if (name === "") return;
+
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+        <span class="productName"></span>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+    `;
+
+    li.querySelector(".productName").textContent = name;
+    list.appendChild(li);
+
+    input.value = "";
+});
+
+function saveEdit(li) {
+    let field = li.querySelector(".editInput");
+    if (!field) return;
+
+    let span = document.createElement("span");
+    span.className = "productName";
+    span.textContent = field.value.trim() || field.defaultValue;
+
+    field.replaceWith(span);
+    li.querySelector(".edit").textContent = "Edit";
+}
+
+// Event delegation on parent UL
+list.addEventListener("click", function(event) {
+    let li = event.target.closest("li");
+    if (!li) return;
+
+    if (event.target.classList.contains("delete")) {
+        li.remove();
+    }
+
+    if (event.target.classList.contains("edit")) {
+        let field = li.querySelector(".editInput");
+
+        if (field) {
+            saveEdit(li);
+        } else {
+            let span = li.querySelector(".productName");
+            let editInput = document.createElement("input");
+
+            editInput.className = "editInput";
+            editInput.value = span.textContent;
+            editInput.defaultValue = span.textContent;
+
+            span.replaceWith(editInput);
+            event.target.textContent = "Save";
+            editInput.focus();
+        }
+    }
+});
+
+// Auto-save when clicking outside edited item
+document.addEventListener("click", function(event) {
+    document.querySelectorAll("#productList li").forEach(li => {
+        if (!li.contains(event.target)) {
+            saveEdit(li);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
